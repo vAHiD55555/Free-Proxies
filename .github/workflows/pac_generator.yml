@@ -1,0 +1,27 @@
+name: PAC Generator
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # اجرای هر ساعت
+  workflow_dispatch:  # اجرای دستی از پنل GitHub
+
+jobs:
+  generate-pac-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: دریافت ریپو
+        uses: actions/checkout@v3
+
+      - name: نصب وابستگی‌ها
+        run: pip install requests
+
+      - name: اجرای اسکریپت PAC
+        run: python generate_pac.py
+
+      - name: ذخیره تغییرات
+        run: |
+          git config user.name "PAC Bot"
+          git config user.email "pacbot@example.com"
+          git add pac_files/*
+          git commit -m "🧪 ساخت خودکار فایل‌های PAC"
+          git push
