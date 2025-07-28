@@ -1,0 +1,28 @@
+name: Build and Deploy
+
+on:
+  schedule:
+    - cron:  '0 * * * *'    # هر ساعت اجرا
+  workflow_dispatch:      # اجرای دستی
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+      - name: Generate PAC & JSON
+        run: python generate_config.py extreme
+      - name: Commit & Push gh-pages
+        run: |
+          git config user.name "Cloud CI"
+          git config user.email "ci@github.com"
+          git checkout -B gh-pages
+          git add UK_generated.pac config_singbox.json
+          git commit -m "Auto update outputs"
+          git push -f origin gh-pages
