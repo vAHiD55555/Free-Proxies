@@ -56,7 +56,7 @@ function FindProxyForURL(url, host) {
         "SOCKS 43.153.64.222:16744",
         "SOCKS 43.153.64.222:15463",
         "SOCKS 43.153.64.222:10054",
-        "SOCKS 43.153.64.222:12818",
+        "SOCKS 43.153.64.222:19919",
         "SOCKS 43.153.64.222:13782",
         "SOCKS 103.73.161.148:1080",
         "SOCKS 43.153.64.222:14282",
@@ -192,7 +192,7 @@ function FindProxyForURL(url, host) {
         "SOCKS 150.227.4.147:1080",
         "SOCKS 165.227.174.249:33080",
         "SOCKS 183.166.132.124:3000",
-        "SOCKS 98.185.94.94:4145",
+        "SOCKS 60.13.42.157:1080",
         "SOCKS 222.129.36.115:57114",
         "SOCKS 222.129.37.77:57114",
         "SOCKS 117.68.147.8:3000",
@@ -220,7 +220,7 @@ function FindProxyForURL(url, host) {
         "SOCKS 114.96.218.231:3000",
         "SOCKS 54.215.46.91:20087",
         "SOCKS 188.120.245.247:12432",
-        "SOCKS 98.185.94.76:4145",
+        "SOCKS 188.227.224.110:9051",
     ];
     var i = Math.floor(Math.random() * proxyList.length);
     return proxyList[i];
